@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     async function getBlogs() {
-      const response = await fetch(`http://localhost:5000/`)
+      const response = await fetch(`https://blog-app-imadahmed101.azurewebsites.net/`)
 
       if (!response.ok) {
         const message = `An error occured: ${response.statusText}`
@@ -29,7 +29,7 @@ const Home = () => {
           return (
             <div key={index} className='bg-gray-300 max-w-xs p-2 m-2 rounded-md'>
               <p className='text-lg font-medium mb-2'>{blog.name}</p>
-              <p className='mb-2 text-gray-700'>asdfka;'lfdasdjf lkasjdfsajdf lk dla sj;flk jsad jkasjd;fklaj sdf</p>
+              <p className='mb-2 text-gray-700'>sample text.</p>
               <button className='bg-red-500 text-white rounded-md p-1'>Read more...</button>
             </div>
           )

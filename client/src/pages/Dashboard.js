@@ -4,13 +4,10 @@ import Axios from 'axios'
 
 const Dashboard = () => {
     const [blogs, setBlogs] = useState([])
-    //const [name, setName] = useState('')
-    //const navigate = useNavigate()
-
 
     useEffect(() => {
         async function getBlogs() {
-            const response = await fetch(`http://localhost:5000/`)
+            const response = await fetch(`https://blog-app-imadahmed101.azurewebsites.net/`)
 
             if (!response.ok) {
                 const message = `An error occured: ${response.statusText}`
@@ -28,7 +25,7 @@ const Dashboard = () => {
         const confirmDelete = window.confirm('Do you want to delete id: ' + id + '?')
 
         if (confirmDelete) {
-            const response = await Axios.delete(`http://localhost:5000/${id}`)
+            const response = await Axios.delete(`https://blog-app-imadahmed101.azurewebsites.net/${id}`)
 
             if (response.status === 400) {
                 const message = `An error occured: ${response.data}`
@@ -48,7 +45,7 @@ const Dashboard = () => {
             return
         }
         if (newName !== '') {
-            const response = await Axios.put(`http://localhost:5000/${id}`, {id, newName})
+            const response = await Axios.put(`https://blog-app-imadahmed101.azurewebsites.net/${id}`, {id, newName})
             if(response.status === 200) {
                 alert('Successfully updated')
                 window.location.reload(false)                
@@ -78,7 +75,7 @@ const Dashboard = () => {
                         return (
                             <tr key={index} className='p-2 border-t-2 hover:bg-blue-200'>
                                 <td className='mb-2 pr-2 text-gray-700'>{blog.name}</td>
-                                <td className='mb-2 pr-2 text-gray-700'>asdfka;'lfdasdjf lkasjdfsajdf lk dla sj;flk jsad jkasjd;fklaj sdf</td>
+                                <td className='mb-2 pr-2 text-gray-700'>sample text.</td>
                                 <td className='mb-2'>
                                     <button
                                         onClick={() => handleUpdate(blog._id, blog.name)}

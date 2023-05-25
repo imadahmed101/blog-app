@@ -10,7 +10,7 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await Axios.post('http://localhost:5000/', {name})
+        const response = await Axios.post('https://blog-app-imadahmed101.azurewebsites.net/', {name})
 
         console.log(response)
         if (response.status === 200) {
